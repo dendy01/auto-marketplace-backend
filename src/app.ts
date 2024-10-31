@@ -46,4 +46,8 @@ app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
 
+app.get('/api', (req, res) => {
+    res.json({ message: 'API is working' });
+});
+
 export default app;
