@@ -28,7 +28,7 @@ const app = express();
 const PORT = 3001;
 
 app.use(cors({
-    origin: ['http://localhost:8080', 'http://localhost:8081'],
+    origin: ['https://auto-marketplace-zqe5.vercel.app'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
