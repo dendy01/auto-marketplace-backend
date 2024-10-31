@@ -16,7 +16,7 @@ const AuthService = {
 
 dotenv.config();
 
-axios.interceptors.request.use(config => {
+axios.interceptors.request.use((config: any) => {
     const token = AuthService.getToken();
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;

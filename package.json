@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --debug src/app.ts",
     "build": "tsc",
-    "start": "NODE_ENV=development node dist/app.ts",
+    "start": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,7 +13,9 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@types/axios": "^0.9.36",
     "@types/express": "^5.0.0",
+    "axios": "^1.7.7",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
