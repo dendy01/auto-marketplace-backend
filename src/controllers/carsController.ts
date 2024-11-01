@@ -198,11 +198,13 @@ export const getPopularCars = async (req: Request, res: Response) => {
             SELECT c.*, u.name as owner_name, u.phone as owner_phone 
             FROM cars c 
             JOIN users u ON c.user_id = u.id 
+            WHERE c.status = 'ACTIVE'
             ORDER BY c.views DESC
             LIMIT 4
         `);
         res.json(result.rows);
     } catch (error) {
+        console.error('Error fetching popular cars:', error);
         res.status(500).json({ message: 'Server error' });
     }
 };

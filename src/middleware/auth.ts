@@ -12,6 +12,14 @@ interface AuthRequest extends Request {
 }
 
 export const authMiddleware = (req: AuthRequest, res: Response, next: NextFunction) => {
+    // List of public routes that don't require authentication
+    const publicRoutes = ['/popular', '/', '/api/cars/popular'];
+    
+    // Check if the current path is in the public routes list
+    if (publicRoutes.includes(req.path)) {
+        return next();
+    }
+
     try {
         const token = req.headers.authorization?.split(' ')[1];
         
@@ -31,4 +39,3 @@ export const authMiddleware = (req: AuthRequest, res: Response, next: NextFuncti
         res.status(401).json({ message: 'Invalid token' });
     }
 };
-
